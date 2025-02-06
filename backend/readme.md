@@ -1,7 +1,5 @@
 # Node.js Express Authentication API Documentation
 
-This document provides an in-depth overview of the backend authentication API built using Node.js, Express, MongoDB, and JWT. It covers the project structure, endpoints, security mechanisms, and visual flow diagrams using Mermaid.
-
 ## Project Structure
 
 ```
@@ -66,9 +64,9 @@ The User model has fields for username, email, password, and createdAt. It also 
 ### 2. Flowchart: User Registration (Signup)
 ```mermaid
 flowchart TD
-    A[Start Signup Process] --> B[Receive POST /api/auth/signup with {username, email, password}]
+    A[Start Signup Process] --> B["Receive POST /api/auth/signup with {username, email, password}"]
     B --> C{Does user exist?}
-    C -- Yes --> D[Return 400: "User already exists"]
+    C -- Yes --> D["Return 400: 'User already exists'"]
     C -- No --> E[Create new User instance]
     E --> F[Invoke pre-save hook to hash password]
     F --> G[Save user to MongoDB]
@@ -82,13 +80,13 @@ When a signup request is received, the server checks if the user exists. If not,
 ### 3. Flowchart: User Login Process
 ```mermaid
 flowchart TD
-    A[Start Login Process] --> B[Receive POST /api/auth/login with {email, password}]
+    A[Start Login Process] --> B["Receive POST /api/auth/login with {email, password}"]
     B --> C[Find user in MongoDB by email]
     C --> D{User found?}
-    D -- No --> E[Return 401: "Invalid credentials"]
+    D -- No --> E["Return 401: 'Invalid credentials'"]
     D -- Yes --> F[Compare provided password with stored hashed password]
     F --> G{Password valid?}
-    G -- No --> H[Return 401: "Invalid credentials"]
+    G -- No --> H["Return 401: 'Invalid credentials'"]
     G -- Yes --> I[Generate JWT token using user ID]
     I --> J[Return user details & token]
     J --> K[End Login Process]
@@ -178,43 +176,5 @@ Use Postman or curl to interact with the API:
 - **Retrieve user profile:** GET `/api/auth/profile` (pass JWT in Authorization header)
 - **Access protected endpoint:** GET `/api/protected`
 
-## Summary
 
-This API provides secure user authentication using best practices like password hashing and JWT-based authentication. The Mermaid diagrams offer visual insights into registration, login, and secured access flows. Adjust and extend the documentation as your project evolves.
 
-```mermaid
-flowchart TD
-    %% External Client and CloudLab Load Balancing
-    A["User Browser (React App)"]
-    A -->|HTTPS| B["CloudLab Load Balancer"]
-
-    %% API Gateway and Modular Server
-    B --> C["API Gateway\n(Node.js/Express)"]
-
-    %% Core Modular Services
-    C --> D["Authentication Module\n(Register/Login)"]
-    C --> E["Classroom Chat Module"]
-    C --> F["Campus Projects Module"]
-    C --> G["Career Center Module"]
-    C --> H["Email Verification Module"]
-
-    %% Email Integration (external service)
-    H --> I["Email Service Provider"]
-
-    %% Database Collections (MongoDB)
-    D --- J["(Users Collection)"]
-    E --- K["(Chat/Messages Collection)"]
-    F --- L["(Projects Collection)"]
-    G --- M["(Career Discussions Collection)"]
-    H --- J
-
-    %% Supporting Services and Config
-    C --> N["Shared Utilities & Config\n(Docker, Env Variables)"]
-
-    %% Future Expandability Placeholder
-    subgraph Future Expansion ["Future Multi-Campus Expansion"]
-      O["Additional University Modules"]
-    end
-    F --- O
-    G --- O
-```
