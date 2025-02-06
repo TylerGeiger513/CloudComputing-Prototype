@@ -1,0 +1,20 @@
+# Use an official Node.js image
+FROM node:18
+
+WORKDIR /app
+
+# Copy package.json and install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy all client files
+COPY . .
+
+# Set the environment variable for the React app to run on port 4200
+ENV PORT=4200
+
+# Expose the port
+EXPOSE 4200
+
+# Start the React development server
+CMD ["npm", "start"]
