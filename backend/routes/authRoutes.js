@@ -1,3 +1,4 @@
+//backend/routes/authRoutes.js
 const express = require('express');
 const { signup, login, getUserProfile } = require('../controllers/authController');
 const { protect } = require('../middlewares/authMiddleware');
