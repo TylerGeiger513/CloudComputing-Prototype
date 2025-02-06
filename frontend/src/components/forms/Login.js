@@ -17,17 +17,18 @@ const Login = () => {
       await loginUser(email, password);
       navigate("/dashboard"); 
     } catch (err) {
-      setError(err);
+      setError(err.message || "Login failed. Please try again.");
     }
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
-        <h2>Login</h2>
-        {error && <p className={styles.error}>{error}</p>}
+        <h2 className={styles.loginTitle}>Login</h2>
+        {error && <p className={`${styles.loginError} ${styles.show}`}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <input
+            className={styles.loginInput}
             type="email"
             placeholder="Email"
             value={email}
@@ -35,17 +36,18 @@ const Login = () => {
             required
           />
           <input
+            className={styles.loginInput}
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Login</button>
+          <button className={styles.loginButton} type="submit">Login</button>
         </form>
-        <p className={styles.signupText}>
+        <p className={styles.signupRedirect}>
           Don't have an account?
-          <button className={styles.signupButton} onClick={() => navigate("/signup")}>
+          <button className={styles.signupRedirectButton} onClick={() => navigate("/signup")}>
             Sign Up
           </button>
         </p>

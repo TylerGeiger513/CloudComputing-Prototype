@@ -25,26 +25,26 @@ const Signup = () => {
     }
   
     try {
-      const data = await signup(username, email, password);
-      setSuccess("Signup successful! Redirecting...");
+      await signup(username, email, password);
+      setSuccess("SIGN UP SUCCESS! REDIRECTING...");
   
       await loginUser(email, password); 
   
-      navigate("/dashboard"); 
+      setTimeout(() => navigate("/dashboard"), 500);
     } catch (err) {
-      setError(err);
+      setError(err.message || "Signup failed. Please try again.");
     }
   };
-  
 
   return (
-    <div className={styles.container}>
+    <div className={styles.signupContainer}>
       <div className={styles.signupBox}>
-        <h2>Sign Up</h2>
-        {error && <p className={styles.error}>{error}</p>}
-        {success && <p className={styles.success}>{success}</p>}
+        <h2 className={styles.signupTitle}>Sign Up</h2>
+        {error && <p className={`${styles.signupError} ${styles.show}`}>{error}</p>}
+        {success && <p className={`${styles.signupSuccess} ${styles.show}`}>{success}</p>}
         <form onSubmit={handleSubmit}>
           <input
+            className={styles.signupInput}
             type="text"
             placeholder="Username"
             value={username}
@@ -52,6 +52,7 @@ const Signup = () => {
             required
           />
           <input
+            className={styles.signupInput}
             type="email"
             placeholder="Email"
             value={email}
@@ -59,6 +60,7 @@ const Signup = () => {
             required
           />
           <input
+            className={styles.signupInput}
             type="password"
             placeholder="Password"
             value={password}
@@ -66,15 +68,16 @@ const Signup = () => {
             required
           />
           <input
+            className={styles.signupInput}
             type="password"
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-          <button type="submit">Sign Up</button>
+          <button className={styles.signupButton} type="submit">Sign Up</button>
         </form>
-        <p className={styles.loginText}>
+        <p className={styles.loginRedirect}>
           Already have an account? <a href="/">Login</a>
         </p>
       </div>

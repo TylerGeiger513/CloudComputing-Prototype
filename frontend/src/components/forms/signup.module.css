@@ -1,70 +1,62 @@
-/* Centering the signup form */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  /* Signup form styling */
-  .signupBox {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 350px;
-  }
-  
-  /* Input fields */
-  input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  /* Signup button */
-  button {
-    width: 100%;
-    padding: 12px;
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #218838;
-  }
-  
-  /* Error and success messages */
-  .error {
-    color: red;
-    font-size: 14px;
-  }
-  
-  .success {
-    color: green;
-    font-size: 14px;
-  }
-  
-  /* Login redirect link */
-  .loginText {
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  .loginText a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .loginText a:hover {
-    text-decoration: underline;
-  }
-  
+.signupContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eef2f7;
+  font-family: 'Arial', sans-serif;
+}
+
+.signupBox {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 400px;
+}
+
+.signupTitle {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.signupInput {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.signupButton {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signupError {
+  color: #721c24;
+  background: #f8d7da;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.signupSuccess {
+  color: #155724;
+  background: #d4edda;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.loginRedirect {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
