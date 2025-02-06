@@ -34,8 +34,8 @@ campusconnect/
 1. **Clone the Repository**
 
    ```
-   git clone https://github.com/your-username/campusconnect.git
-   cd campusconnect
+   git clone https://github.com/TylerGeiger513/CloudComputing-Prototype.git
+   cd CloudComputing-Prototype
    ```
 
 2. **Create a Global `.env` File**
