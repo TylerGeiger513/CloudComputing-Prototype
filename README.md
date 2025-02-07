@@ -69,6 +69,30 @@ campusconnect/
    - Map ports as specified (backend on port 3000, frontend on port 4200).
 
 5. **Access the Application**
-
    - **Frontend:** Open your browser and navigate to [http://localhost:4200](http://localhost:4200).
    - **Backend API:** You can test endpoints (e.g., via Postman) at [http://localhost:3000/api/auth](http://localhost:3000/api/auth).
+
+
+### Planning
+
+## Backend
+
+First Prototype: TODO:
+
+endpoints: 
+profile/
+   updateProfile(username, email, campus) -- add an endpoint to allow to change username or email
+   changePassword(oldpass, newpass)
+
+addfriend
+
+Allow for private messages between friends - 
+allow for messaging across campus channel
+when user signs up - they should join a campus - for now just make it load a list of campuses that we set up for now only focusing on West Chester University and Testing Campus
+Each campus should have a general campus discussion channel to focus on for now.
+Allow for the creation of classrooms which are similar to campuses where they have a main chatting area for now and an option to invite friends to join
+Integrate testing covering 100% of the backend scope
+Security audit + overview
+
+   
+   
