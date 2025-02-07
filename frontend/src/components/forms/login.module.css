@@ -1,0 +1,115 @@
+/* General Container */
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  z-index: 2; /* Ensures it's above the particle background */
+  background-color: transparent;
+}
+
+
+/* Form Box Styling */
+.loginBox {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 380px;
+  transition: transform 0.2s ease-in-out;
+  z-index: 3; /* Ensures the login form appears above particles */
+
+}
+
+.loginBox:hover {
+  transform: scale(1.02);
+}
+
+/* Form Header */
+.loginTitle {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Input Fields */
+.loginInput {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s ease-in-out;
+}
+
+.loginInput:focus {
+  border: 1px solid #6a0dad;
+  outline: none;
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.3);
+}
+
+/* Buttons */
+.loginButton {
+  width: 100%;
+  padding: 12px;
+  background: #6a0dad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.loginButton:hover {
+  background: #530c9b;
+  transform: translateY(-2px);
+}
+
+.loginButton:active {
+  background: #450b7f;
+  transform: translateY(1px);
+}
+
+/* Error & Success Messages */
+.loginError {
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #721c24;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.loginError.show {
+  opacity: 1;
+}
+
+/* Signup Redirect Link */
+.signupRedirect {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signupRedirect button {
+  background: none;
+  border: none;
+  color: #6a0dad;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
+.signupRedirect button:hover {
+  color: #530c9b;
+}

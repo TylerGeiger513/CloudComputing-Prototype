@@ -1,0 +1,45 @@
+
+services:
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env.development
+    depends_on:
+      - mongo
+      - redis
+
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.env.development
+    depends_on:
+      - backend
+
+  mongo:
+    container_name: mongo
+    image: mongo:8.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+    - "6379:6379"
+    command: ["redis-server", "--requirepass", "redispassword"]
+
+volumes:
+  mongo_data:
