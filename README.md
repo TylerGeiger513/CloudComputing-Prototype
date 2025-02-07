@@ -105,7 +105,7 @@ Security audit + overview
 ### Backend Flowchart
 
 ```mermaid   
- flowchart LR
+ flowchart TD
   %% Client Request & Express Server Setup
   A["Client Request"]
   A --> B["Express Server (app.js)"]
@@ -159,7 +159,7 @@ Security audit + overview
 ```  
 ### Frontend Flowchart
 ```mermaid
-flowchart LR
+flowchart TD
   %% Application Initialization and Session Check
   A["Client Browser"]
   A --> B["Load React App (index.js)"]
