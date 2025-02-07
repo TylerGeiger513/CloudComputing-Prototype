@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Login from "../components/forms/Login";
 import Signup from "../components/forms/Signup";
+import Profile from "../pages/Profile"
 import Dashboard from "../pages/Dashboard";
 import { AuthContext } from "../context/authContext";
 
@@ -17,6 +18,7 @@ const AppRoutes = () => {
           path="/dashboard"
           element={userToken ? <Dashboard /> : <Navigate to="/" />}
         />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
