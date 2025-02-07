@@ -80,13 +80,21 @@ campusconnect/
 First Prototype: TODO:
 
 endpoints: 
+1. 
 profile/
    updateProfile(username, email, campus) -- add an endpoint to allow to change username or email
-   changePassword(oldpass, newpass)
+   changePassword(oldpass, newpass)add an endpoint to allow to change password 
 
-addfriend
 
-Allow for private messages between friends - 
+friend/
+add endpoints for a functioning friend system. add friend, should work on a basic friend request system
+
+messageContext or other name- 
+For first product - just try to get messaging and message history in private DMs. This will later be expanded to have channels in classrooms in 2 so keep it modular ready for expansion with more role based permissions in future use etc...
+Later implementations: delete / edit message
+
+2. 
+
 allow for messaging across campus channel
 when user signs up - they should join a campus - for now just make it load a list of campuses that we set up for now only focusing on West Chester University and Testing Campus
 Each campus should have a general campus discussion channel to focus on for now.
