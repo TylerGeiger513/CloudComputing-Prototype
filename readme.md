@@ -1,8 +1,8 @@
-## Project Goal: 
+# Project Goal: 
 Create an application tailored for university students that enables them to connect, collaborate on projects, share notes, and study together. The app will be functionality similar to Discord but focused on academic and campus collaboration.
 
 
-## Deployment Instructions
+# Deployment Instructions
 1. Ensure Docker is installed.
 2. In the project root, run: 
    ```
@@ -16,9 +16,9 @@ Create an application tailored for university students that enables them to conn
    docker-compose down
    ```
 
-## Architecture Design
+# Architecture Design
 
-# Docker Architecture:
+### Docker Architecture:
 ```mermaid
 graph LR
   A[Client Browser]
@@ -36,13 +36,13 @@ graph LR
   C -->|Session Storage/Retrieval| E
 ```
 
-# Backend Architecture:
-A flowchart describing the backend workflow can be found (here)[[https://github.com/TylerGeiger513/CloudComputing-Prototype/backend](https://github.com/TylerGeiger513/CloudComputing-Prototype/blob/main/backend/readme.md)]
-# Frontend Architecture:
-A flowchart describing the frontend workflow can be found (here)[[https://github.com/TylerGeiger513/CloudComputing-Prototype/backend](https://github.com/TylerGeiger513/CloudComputing-Prototype/blob/main/frontend/readme.md)]
+### Backend Workflow:
+A flowchart describing the backend workflow can be found [here](https://github.com/TylerGeiger513/CloudComputing-Prototype/blob/main/backend/readme.md)
+### Frontend Workflow:
+A flowchart describing the frontend workflow can be found [here](https://github.com/TylerGeiger513/CloudComputing-Prototype/blob/main/frontend/readme.md)
 
 
-## Project Structure
+# Project Structure
   
    
 (Backend )[]
