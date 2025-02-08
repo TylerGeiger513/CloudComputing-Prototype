@@ -197,3 +197,6 @@ The file structure is listed below
     6. Proxy (NGINX) & SSL
 
     7. Do the same for staging environment 
+
+### UI Mockup
+![image](https://github.com/user-attachments/assets/9b5587c5-5c62-48c2-8144-00556c0ff977)
