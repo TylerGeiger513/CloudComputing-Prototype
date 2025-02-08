@@ -17,6 +17,8 @@ Create an application tailored for university students that enables them to conn
    ```
 
 ## Architecture Design
+
+# Docker Architecture:
 ```mermaid
 graph LR
   A[Client Browser]
@@ -34,8 +36,17 @@ graph LR
   C -->|Session Storage/Retrieval| E
 ```
 
-## Project Structure
+# Backend Architecture:
+A flowchart describing the backend workflow can be found (here)[[https://github.com/TylerGeiger513/CloudComputing-Prototype/backend](https://github.com/TylerGeiger513/CloudComputing-Prototype/blob/main/backend/readme.md)]
+# Frontend Architecture:
+A flowchart describing the frontend workflow can be found (here)[[https://github.com/TylerGeiger513/CloudComputing-Prototype/backend](https://github.com/TylerGeiger513/CloudComputing-Prototype/blob/main/frontend/readme.md)]
 
+
+## Project Structure
+  
+   
+(Backend )[]
+The file structure is listed below 
 ```plaintext
 ├── .dockerignore               # Files and folders to ignore during Docker builds
 ├── docker-compose.yml          # Orchestrates backend, frontend, MongoDB, and Redis containers
