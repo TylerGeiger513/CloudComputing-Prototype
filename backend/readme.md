@@ -1,6 +1,7 @@
 ### Backend Architecture
 
-```flowchart TD
+```mermaid
+flowchart TD
   %% Client Request & Express Server Setup
   A["Client Request"]
   A --> B["Express Server (app.js)"]
