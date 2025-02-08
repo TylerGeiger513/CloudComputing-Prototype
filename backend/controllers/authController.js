@@ -65,7 +65,12 @@ exports.login = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
     const user = await User.findOne({ $or: [{ username }, { email }] });
-    if (!user || !(await user.comparePassword(password))) {
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 

@@ -34,8 +34,8 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <input
               className={styles.loginInput}
-              type="email"
-              placeholder="Email"
+              type="text"
+              placeholder="Username or Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
