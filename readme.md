@@ -16,6 +16,12 @@ Create an application tailored for university students that enables them to conn
    docker-compose down
    ```
 
+# Demo Video
+
+
+https://github.com/user-attachments/assets/3a57d87e-2264-4e75-9dd3-40b85e564b55
+
+
 # Architecture Design
 
 ### Docker Architecture:
