@@ -6,6 +6,7 @@ const rateLimit = require('express-rate-limit');
 const sessionMiddleware = require('./config/sessionStore');
 const authRoutes = require('./routes/authRoutes');
 const errorHandler = require('./middleware/errorHandler');
+const { requestLogger } = require('./middleware/logging');
 const config = require('./config/config');
 
 const app = express();
@@ -35,6 +36,8 @@ app.use(express.urlencoded({ extended: true }));
 // --- Session Middleware --- //
 app.use(sessionMiddleware);
 
+// -- Logging Middleware --- //
+app.use(requestLogger);
 // --- Routes --- //
 app.use('/api/auth', authRoutes);
 

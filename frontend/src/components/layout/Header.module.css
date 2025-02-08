@@ -1,14 +1,18 @@
 /* Header container */
+/* frontend/src/components/layout/Header.module.css */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background: #6a0dad;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--primary-a10); /* Use the primary color */
+  color: white; /* Use the text color (changes with theme) */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* The rest of your styles remain the same */
+
   
   /* Logo */
   .logo {

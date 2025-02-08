@@ -23,6 +23,43 @@ exports.signup = async (req, res, next) => {
   }
 };
 
+// DELETE /delete: Deletes the user after password confirmation
+exports.deleteUser = async (req, res, next) => {
+  try {
+    const { password } = req.body;
+    if (!req.session || !req.session.userId) {
+      return res.status(401).json({ message: 'Not authenticated' });
+    }
+    
+    const user = await User.findById(req.session.userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    
+    // Compare the provided password with the stored hash
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Incorrect password' });
+    }
+    
+    // Delete the user from the database
+    await User.findByIdAndDelete(user._id);
+    
+    // Destroy the session and clear the cookie
+    req.session.destroy((err) => {
+      if (err) return next(err);
+      res.clearCookie('connect.sid', {
+        httpOnly: true,
+        secure: req.app.get('env') === 'production',
+        sameSite: req.app.get('env') === 'production' ? 'Strict' : 'Lax',
+      });
+      res.status(200).json({ message: 'User deleted successfully' });
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 // POST /login
 exports.login = async (req, res, next) => {
   try {

@@ -3,15 +3,11 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package files and install dependencies.
 COPY package*.json ./
 RUN npm install
 
-# Copy your application code.
 COPY . .
 
-# Expose the port for Create React App (typically 3000).
 EXPOSE 3000
 
-# Start the development server.
 CMD ["npm", "start"]

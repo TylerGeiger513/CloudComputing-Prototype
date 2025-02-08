@@ -6,22 +6,23 @@
   height: 100vh;
   font-family: 'Arial', sans-serif;
   position: relative;
-  z-index: 2; /* Ensures it's above the particle background */
+  z-index: 2; /* Above particle background */
   background-color: transparent;
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
 /* Form Box Styling */
 .loginBox {
-  background: white;
+  background: var(--surface-a10);
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 380px;
-  transition: transform 0.2s ease-in-out;
-  z-index: 3; /* Ensures the login form appears above particles */
-
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+  z-index: 3;
 }
 
 .loginBox:hover {
@@ -30,7 +31,7 @@
 
 /* Form Header */
 .loginTitle {
-  color: #333;
+  color: var(--primary-a40);
   margin-bottom: 1rem;
 }
 
@@ -40,14 +41,15 @@
   width: 100%;
   padding: 12px;
   margin: 10px 0;
-  border: 1px solid #ddd;
+  border: 1px solid var(--surface-a40);
   border-radius: 6px;
   font-size: 16px;
   transition: border 0.3s ease-in-out;
+  background: var(--surface-a10);
 }
 
 .loginInput:focus {
-  border: 1px solid #6a0dad;
+  border: 1px solid var(--primary-a0);
   outline: none;
   box-shadow: 0 0 5px rgba(106, 13, 173, 0.3);
 }
@@ -56,7 +58,7 @@
 .loginButton {
   width: 100%;
   padding: 12px;
-  background: #6a0dad;
+  background: var(--primary-a0);
   color: white;
   border: none;
   border-radius: 6px;
@@ -66,12 +68,12 @@
 }
 
 .loginButton:hover {
-  background: #530c9b;
+  background: var(--primary-a0);
   transform: translateY(-2px);
 }
 
 .loginButton:active {
-  background: #450b7f;
+  background: var(--primary-a30);
   transform: translateY(1px);
 }
 
@@ -103,7 +105,7 @@
 .signupRedirect button {
   background: none;
   border: none;
-  color: #6a0dad;
+  color: var(--primary-a0);
   font-size: 14px;
   cursor: pointer;
   margin-left: 5px;
@@ -111,5 +113,5 @@
 }
 
 .signupRedirect button:hover {
-  color: #530c9b;
+  color: var(--primary-a30);
 }
