@@ -1,44 +1,51 @@
-// backend/controllers/friendController.js
 const User = require('../models/User');
 const FriendRequest = require('../models/friendRequest');
 
 // Send a friend request (POST /api/friends/request)
+// Now accepts a field 'recipient' which can be a username or user ID.
 exports.sendFriendRequest = async (req, res, next) => {
   try {
     const requesterId = req.session.userId;
-    const { recipientId } = req.body;
+    const { recipient } = req.body; // recipient can be a username or an ObjectId
 
-    if (!recipientId) {
-      return res.status(400).json({ message: 'Recipient ID is required.' });
-    }
-    if (requesterId === recipientId) {
-      return res.status(400).json({ message: 'You cannot send a friend request to yourself.' });
-    }
-
-    // Ensure the recipient exists
-    const recipient = await User.findById(recipientId);
     if (!recipient) {
+      return res.status(400).json({ message: 'Recipient username or ID is required.' });
+    }
+
+    // Determine whether recipient is a valid ObjectId (24 hex characters) or a username.
+    let recipientUser;
+    if (recipient.match(/^[0-9a-fA-F]{24}$/)) {
+      recipientUser = await User.findById(recipient);
+    } else {
+      recipientUser = await User.findOne({ username: recipient });
+    }
+    if (!recipientUser) {
       return res.status(404).json({ message: 'Recipient user not found.' });
     }
 
-    // Check if a friend request already exists
+    // Prevent sending a friend request to yourself.
+    if (requesterId === recipientUser._id.toString()) {
+      return res.status(400).json({ message: 'You cannot send a friend request to yourself.' });
+    }
+
+    // Check if a friend request already exists.
     const existingRequest = await FriendRequest.findOne({
       requester: requesterId,
-      recipient: recipientId,
+      recipient: recipientUser._id,
     });
     if (existingRequest) {
       return res.status(400).json({ message: 'Friend request already sent.' });
     }
 
-    // Check if the users are already friends
+    // Check if the users are already friends.
     const requester = await User.findById(requesterId);
-    if (requester.friends.includes(recipientId)) {
+    if (requester.friends.includes(recipientUser._id)) {
       return res.status(400).json({ message: 'User is already your friend.' });
     }
 
     const friendRequest = new FriendRequest({
       requester: requesterId,
-      recipient: recipientId,
+      recipient: recipientUser._id,
     });
     await friendRequest.save();
 
@@ -65,11 +72,11 @@ exports.acceptFriendRequest = async (req, res, next) => {
       return res.status(403).json({ message: 'You are not authorized to accept this friend request.' });
     }
 
-    // Update friend lists for both users
+    // Add each user to the other’s friend list.
     await User.findByIdAndUpdate(recipientId, { $addToSet: { friends: friendRequest.requester } });
     await User.findByIdAndUpdate(friendRequest.requester, { $addToSet: { friends: recipientId } });
 
-    // Delete the friend request 
+    // Delete the friend request.
     await FriendRequest.findByIdAndDelete(requestId);
 
     res.status(200).json({ message: 'Friend request accepted.' });
@@ -95,7 +102,6 @@ exports.declineFriendRequest = async (req, res, next) => {
       return res.status(403).json({ message: 'You are not authorized to decline this friend request.' });
     }
 
-    // Delete the friend request
     await FriendRequest.findByIdAndDelete(requestId);
     res.status(200).json({ message: 'Friend request declined.' });
   } catch (error) {
@@ -103,8 +109,7 @@ exports.declineFriendRequest = async (req, res, next) => {
   }
 };
 
-// (POST /api/friends/revoke)
-// Allows the requester to cancel a pending friend request.
+// Revoke a friend request (POST /api/friends/revoke)
 exports.revokeFriendRequest = async (req, res, next) => {
   try {
     const requesterId = req.session.userId;
@@ -137,7 +142,6 @@ exports.removeFriend = async (req, res, next) => {
       return res.status(400).json({ message: 'Friend ID is required.' });
     }
 
-    // Remove friendId from the current user's friend list and vice versa.
     await User.findByIdAndUpdate(userId, { $pull: { friends: friendId } });
     await User.findByIdAndUpdate(friendId, { $pull: { friends: userId } });
 
