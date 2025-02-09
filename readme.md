@@ -18,8 +18,13 @@ Create an application tailored for university students that enables them to conn
 
 # Demo Video
 
-
+Cookies and Login Auth
 https://github.com/user-attachments/assets/3a57d87e-2264-4e75-9dd3-40b85e564b55
+
+Friend Demo (Mock UI)
+
+
+https://github.com/user-attachments/assets/82c5b105-91b0-4b0c-b742-6db4d4bb67e1
 
 
 # Architecture Design
@@ -132,7 +137,16 @@ The file structure is listed below
             ├── index.css     # Base CSS resets and styles
             └── themes.js     # Definitions for light and dark theme variables
 ```
-
+-- 
+> [!CAUTION]
+> We are currently polling the endpoints like: `/api/auth/profile`, `/api/friends/list`, and `/api/friends/requests` on every reload and every navigation. This is exceeding the rate limit on the backend.
+> Fixes:
+>
+> Caching - Use local & browser storage to stop redundant calls
+>
+> Sockets - When living messaging is added- add sockets for other endpoints such as incoming friend requests etc...
+>
+> Minimize the redirects: The front end routing system causes an excessive amount of redirects - this can be minimized signifigantly 
 -- 
 # Project Planning
 
@@ -144,13 +158,13 @@ The file structure is listed below
 - [ ] *(Optional)* Add email verification and password reset flows.
 
 ## 2. Friend System (Add & Connect with Users)
-- [ ] Define a friend request model with statuses (pending, incoming, accepted).
-- [ ] Extend the User model to include friend lists or reference relationships.
-- [ ] Create an endpoint to send friend requests.
-- [ ] Create endpoints to accept or decline friend requests.
-- [ ] Create an endpoint to fetch a user's friend list.
+- [x] Define a friend request model with statuses (pending, incoming, accepted).
+- [x] Extend the User model to include friend lists or reference relationships.
+- [x] Create an endpoint to send friend requests.
+- [x] Create endpoints to accept or decline friend requests.
+- [x] Create an endpoint to fetch a user's friend list.
 - [ ] Design friend request notifications or alerts.
-- [ ] Build a view to manage incoming friend requests and display friend lists.
+- [x] Build a (Mock) view to manage incoming friend requests and display friend lists. 
 
 ## 3. Direct Messaging System
 - [ ] Create API endpoints for sending and retrieving messages between users.
