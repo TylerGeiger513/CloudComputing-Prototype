@@ -139,7 +139,7 @@ The file structure is listed below
 ```
 -- 
 > [!CAUTION]
-> We are currently polling the endpoints like: `/api/auth/profile`, `/api/friends/list`, and `/api/friends/requests` on every reload and every navigation. This is exceeding the rate limit on the backend.
+> We are currently calling the endpoints like: `/api/auth/profile`, `/api/friends/list`, and `/api/friends/requests` on every reload and every navigation. This is exceeding the rate limit on the backend and just causes a lot of uneccessary server stress.
 > Fixes:
 >
 > Caching - Use local & browser storage to stop redundant calls
