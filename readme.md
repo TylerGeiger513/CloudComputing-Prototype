@@ -1,8 +1,8 @@
-## Project Goal: 
+# Project Goal: 
 Create an application tailored for university students that enables them to connect, collaborate on projects, share notes, and study together. The app will be functionality similar to Discord but focused on academic and campus collaboration.
 
 
-## Deployment Instructions
+# Deployment Instructions
 1. Ensure Docker is installed.
 2. In the project root, run: 
    ```
@@ -16,7 +16,15 @@ Create an application tailored for university students that enables them to conn
    docker-compose down
    ```
 
-## Architecture Design
+# Demo Video
+
+
+https://github.com/user-attachments/assets/3a57d87e-2264-4e75-9dd3-40b85e564b55
+
+
+# Architecture Design
+
+### Docker Architecture:
 ```mermaid
 graph LR
   A[Client Browser]
@@ -34,8 +42,17 @@ graph LR
   C -->|Session Storage/Retrieval| E
 ```
 
-## Project Structure
+### Backend Workflow:
+A flowchart describing the backend workflow can be found [here](https://github.com/TylerGeiger513/CloudComputing-Prototype/blob/main/backend/readme.md)
+### Frontend Workflow:
+A flowchart describing the frontend workflow can be found [here](https://github.com/TylerGeiger513/CloudComputing-Prototype/blob/main/frontend/readme.md)
 
+
+# Project Structure
+  
+   
+(Backend )[]
+The file structure is listed below 
 ```plaintext
 ├── .dockerignore               # Files and folders to ignore during Docker builds
 ├── docker-compose.yml          # Orchestrates backend, frontend, MongoDB, and Redis containers
@@ -180,3 +197,7 @@ graph LR
     6. Proxy (NGINX) & SSL
 
     7. Do the same for staging environment 
+
+### UI Mockup
+![image](https://github.com/user-attachments/assets/4ed141c9-d5dd-4664-a298-8974c6717f7b)
+
