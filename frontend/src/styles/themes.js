@@ -24,12 +24,12 @@ export const lightTheme = {
     '--primary-a40': '#9563c1',
     '--primary-a50': '#926ab4',
   
-    '--surface-a0': '#3e3c3c',
-    '--surface-a10': '#514f4f',
-    '--surface-a20': '#656363',
-    '--surface-a30': '#797777',
-    '--surface-a40': '#8e8d8d',
-    '--surface-a50': '#a4a3a3',
+    '--surface-a0': '#201e1e',
+    '--surface-a10': '#353333',
+    '--surface-a20': '#4b4949',
+    '--surface-a30': '#626060',
+    '--surface-a40': '#7a7979',
+    '--surface-a50': '#939292',
   
     '--color-text': '#ffffff'
   };

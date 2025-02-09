@@ -8,6 +8,7 @@ const authRoutes = require('./routes/authRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const { requestLogger } = require('./middleware/logging');
 const config = require('./config/config');
+const friendRoutes = require('./routes/friendRoutes');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use(sessionMiddleware);
 app.use(requestLogger);
 // --- Routes --- //
 app.use('/api/auth', authRoutes);
+app.use('/api/friends', friendRoutes);
 
 // --- Error Handling Middleware --- //
 app.use(errorHandler);
