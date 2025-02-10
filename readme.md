@@ -1,3 +1,5 @@
+# Team Members: Alex Cooper, Kadin Matotek, Perez Abhuilmen, Tyler Geiger
+
 # Project Goal: 
 Create an application tailored for university students that enables them to connect, collaborate on projects, share notes, and study together. The app will be functionality similar to Discord but focused on academic and campus collaboration.
 
@@ -215,4 +217,3 @@ The file structure is listed below
 
 ### UI Mockup
 ![image](https://github.com/user-attachments/assets/4ed141c9-d5dd-4664-a298-8974c6717f7b)
-
