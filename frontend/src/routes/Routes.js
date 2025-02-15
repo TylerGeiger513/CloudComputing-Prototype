@@ -31,7 +31,7 @@ const AppRoutes = () => {
           path="/profile"
           element={user ? <Profile /> : <Navigate to="/login" />}
         />
-        <Route path="/chat" element={user ? <Chat /> : <Navigate to="/login" />}
+        <Route path="/chat" element={user ? <Chat /> : <Navigate to="/login" />} />
       </Routes>
     </Router>
   );
