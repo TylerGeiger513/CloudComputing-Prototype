@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import Login from "../components/forms/Login";
-import Signup from "../components/forms/Signup";
+import Login from "../components/auth/Login";
+import Signup from "../components/auth/Signup";
 import Dashboard from "../pages/Dashboard";
 import Chat from "../pages/Chat"
 import { AuthContext } from "../context/authContext";

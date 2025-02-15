@@ -1,0 +1,22 @@
+/* The outer wrapper for the dashboard */
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Container below the header that holds the main content and the side nav */
+  .dashboard-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  /* Main content adjusts based on the side nav width */
+  .dashboard-main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: var(--surface-a0); /* optional background */
+  }
+  

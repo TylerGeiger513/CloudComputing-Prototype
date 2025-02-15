@@ -1,6 +1,9 @@
 import React from 'react';
+import Header from "../components/layout/Header";
 
 export default function Chat() {
+
+
   // Container for the entire page
   const containerStyle = {
     display: 'flex',
@@ -129,6 +132,8 @@ export default function Chat() {
   };
 
   return (
+    <>
+    <Header />
     <div style={containerStyle}>
       {/* Left Sidebar */}
       <div style={sidebarStyle}>
@@ -178,5 +183,6 @@ export default function Chat() {
         </div>
       </div>
     </div>
+    </>
   );
 }
