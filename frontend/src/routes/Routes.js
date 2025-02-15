@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Login from "../components/forms/Login";
 import Signup from "../components/forms/Signup";
 import Dashboard from "../pages/Dashboard";
+import Chat from "../pages/Chat"
 import { AuthContext } from "../context/authContext";
 import Profile from "../pages/Profile";
 
@@ -30,6 +31,7 @@ const AppRoutes = () => {
           path="/profile"
           element={user ? <Profile /> : <Navigate to="/login" />}
         />
+        <Route path="/chat" element={user ? <Chat /> : <Navigate to="/login" />}
       </Routes>
     </Router>
   );
