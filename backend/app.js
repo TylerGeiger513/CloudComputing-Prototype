@@ -9,6 +9,7 @@ const errorHandler = require('./middleware/errorHandler');
 const { requestLogger } = require('./middleware/logging');
 const config = require('./config/config');
 const friendRoutes = require('./routes/friendRoutes');
+const channelRoutes = require('./routes/channelRoutes');
 
 const app = express();
 
@@ -42,6 +43,7 @@ app.use(requestLogger);
 // --- Routes --- //
 app.use('/api/auth', authRoutes);
 app.use('/api/friends', friendRoutes);
+app.use('/api/channels', channelRoutes);
 
 // --- Error Handling Middleware --- //
 app.use(errorHandler);

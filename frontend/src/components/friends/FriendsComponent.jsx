@@ -17,7 +17,7 @@ import {
 import styles from "../../styles/FriendsCard.module.css";
 import defaultPFP from "../../assets/images/Default_pfp.jpg";
 
-const FriendsComponent = () => {
+const FriendsComponent = ({ onSelectFriend }) => {
   const queryClient = useQueryClient();
   const [newFriend, setNewFriend] = useState("");
   const [contextMenu, setContextMenu] = useState({
@@ -150,6 +150,7 @@ const FriendsComponent = () => {
             friendList={friendListData?.friends || []}
             defaultPFP={defaultPFP}
             handleContextMenu={handleContextMenu}
+            onSelectFriend={onSelectFriend}  
           />
         )}
         <div className={styles.sectionDivider} />

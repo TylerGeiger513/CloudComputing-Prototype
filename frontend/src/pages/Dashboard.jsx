@@ -1,11 +1,13 @@
-import React from "react";
+// src/pages/Dashboard.jsx
+import React, { useState } from "react";
 import Header from "../components/layout/Header";
 import FriendsComponent from "../components/friends/FriendsComponent";
 import ChatBox from "../components/chat/ChatBoxComponent";
 import "../styles/Dashboard.css";
 
-
 const Dashboard = () => {
+  const [selectedFriend, setSelectedFriend] = useState(null);
+
   return (
     <div className="dashboard-wrapper">
       <Header />
@@ -17,10 +19,14 @@ const Dashboard = () => {
           <div>3</div>
         </div>
         <main className="dashboard-main">
-          <ChatBox />
+          {selectedFriend ? (
+            <ChatBox friend={selectedFriend} />
+          ) : (
+            <div>Please select a friend to chat with.</div>
+          )}
         </main>
         <aside className="dashboard-friends">
-          <FriendsComponent />
+          <FriendsComponent onSelectFriend={setSelectedFriend} />
         </aside>
       </div>
     </div>

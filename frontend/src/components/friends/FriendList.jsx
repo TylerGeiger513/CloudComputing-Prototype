@@ -1,8 +1,9 @@
+// src/components/friends/FriendList.jsx
 import React from "react";
 import styles from "../../styles/FriendsCard.module.css";
 import FriendCard from "./FriendCard";
 
-const FriendList = ({ friendList, defaultPFP, handleContextMenu }) => {
+const FriendList = ({ friendList, defaultPFP, handleContextMenu, onSelectFriend }) => {
   return (
     <div className={styles.section}>
       <h3>Your Friends</h3>
@@ -16,6 +17,7 @@ const FriendList = ({ friendList, defaultPFP, handleContextMenu }) => {
               friend={friend}
               defaultPFP={defaultPFP}
               handleContextMenu={handleContextMenu}
+              onSelectFriend={onSelectFriend}
             />
           ))}
         </div>
