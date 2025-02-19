@@ -1,12 +1,11 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../../context/authContext";
+import React, { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Header from "../layout/Header";
 import ParticleBackground from "../layout/ParticleBackground";
-import styles from "./signup.module.css";
-
+import styles from "../../styles/Signup.module.css";
 const Signup = () => {
-  const { signupUser } = useContext(AuthContext);
+  const { signupUser } = useAuth();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,12 +18,12 @@ const Signup = () => {
     e.preventDefault();
     setError("");
     setSuccess("");
-    
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
-    
+
     try {
       await signupUser(username, email, password);
       setSuccess("Account created successfully!");

@@ -1,20 +1,24 @@
 /* General Container */
-.loginContainer {
+.signupContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   font-family: 'Arial', sans-serif;
   position: relative;
-  z-index: 2; /* Above particle background */
+  z-index: 2;
   background-color: transparent;
   color: var(--color-text);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
-/* Form Box Styling */
-.loginBox {
+body {
+  background-color: transparent !important;
+}
+
+/* Form Box Styling (Matches loginBox) */
+.signupBox {
   background: var(--surface-a10);
   padding: 2rem;
   border-radius: 10px;
@@ -25,18 +29,18 @@
   z-index: 3;
 }
 
-.loginBox:hover {
+.signupBox:hover {
   transform: scale(1.02);
 }
 
 /* Form Header */
-.loginTitle {
+.signupTitle {
   color: var(--primary-a40);
   margin-bottom: 1rem;
 }
 
-/* Input Fields */
-.loginInput {
+/* Input Fields (Matches loginInput) */
+.signupInput {
   box-sizing: border-box;
   width: 100%;
   padding: 12px;
@@ -45,17 +49,16 @@
   border-radius: 6px;
   font-size: 16px;
   transition: border 0.3s ease-in-out;
-  background: var(--surface-a10);
 }
 
-.loginInput:focus {
+.signupInput:focus {
   border: 1px solid var(--primary-a0);
   outline: none;
   box-shadow: 0 0 5px rgba(106, 13, 173, 0.3);
 }
 
-/* Buttons */
-.loginButton {
+/* Buttons (Matches loginButton) */
+.signupButton {
   width: 100%;
   padding: 12px;
   background: var(--primary-a0);
@@ -67,18 +70,18 @@
   transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.loginButton:hover {
+.signupButton:hover {
   background: var(--primary-a0);
   transform: translateY(-2px);
 }
 
-.loginButton:active {
+.signupButton:active {
   background: var(--primary-a30);
   transform: translateY(1px);
 }
 
-/* Error & Success Messages */
-.loginError {
+/* Error & Success Messages (Matches loginError) */
+.signupError {
   font-size: 14px;
   padding: 10px;
   margin-top: 10px;
@@ -91,18 +94,29 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.loginError.show {
+.signupError.show {
   opacity: 1;
 }
 
-/* Signup Redirect Link */
-.signupRedirect {
+.signupSuccess {
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #155724;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+/* Login Redirect Link (Matches signupRedirect) */
+.loginRedirect {
   margin-top: 15px;
   font-size: 14px;
   text-align: center;
 }
 
-.signupRedirect button {
+.loginRedirect button {
   background: none;
   border: none;
   color: var(--primary-a0);
@@ -112,6 +126,6 @@
   text-decoration: underline;
 }
 
-.signupRedirect button:hover {
+.loginRedirect button:hover {
   color: var(--primary-a30);
 }

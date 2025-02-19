@@ -13,7 +13,14 @@ export const lightTheme = {
     '--surface-a40': '#c5c5c5',
     '--surface-a50': '#b6b6b6',
   
-    '--color-text': '#000000'
+    '--color-text': '#000000',
+
+    '--color-light-red': '#fbe3e4',
+    '--color-darker-red': '#fc422d',
+
+    '--color-light-green': '#b7e9ce',
+    '--color-darker-green': '#04aa4e',
+
   };
   
   export const darkTheme = {
@@ -31,5 +38,13 @@ export const lightTheme = {
     '--surface-a40': '#7a7979',
     '--surface-a50': '#939292',
   
-    '--color-text': '#ffffff'
+    '--color-text': '#ffffff',
+
+    '--color-light-red': '#fbe3e4',
+    '--color-darker-red': '#fc422d',
+
+    '--color-light-green': '#b7e9ce',
+    '--color-darker-green': '#04aa4e',
+
   };
+

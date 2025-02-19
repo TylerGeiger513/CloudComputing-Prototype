@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/authContext";
+import { useAuth } from "../hooks/useAuth";
 import Header from "../components/layout/Header";
 
 const Profile = () => {
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user, logoutUser } = useAuth();
   const navigate = useNavigate();
 
   return (

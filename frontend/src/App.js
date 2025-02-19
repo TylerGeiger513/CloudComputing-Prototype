@@ -1,14 +1,13 @@
-// frontend/src/App.js
 import React from "react";
-import { ThemeProvider } from "./context/themeContext";
-import { AuthProvider } from "./context/authContext";
-import Routes from "./routes/Routes";
+import { ThemeProvider } from "./contexts/ThemeContext.jsx";
+import { AuthProvider } from "./contexts/AuthContext.jsx";
+import AppRoutes from "./routes/Routes";
 
 function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <Routes />
+        <AppRoutes />
       </AuthProvider>
     </ThemeProvider>
   );

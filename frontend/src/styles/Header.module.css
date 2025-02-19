@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--primary-a10);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.accountMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.accountButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: white;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 120px;
+  text-align: left;
+}
+
+.accountMenu:hover .dropdown,
+.dropdown:hover {
+  display: block;
+}
+
+.dropdown button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown button:hover {
+  background: #f4f4f4;
+}

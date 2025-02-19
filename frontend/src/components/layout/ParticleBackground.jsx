@@ -1,15 +1,13 @@
-// frontend/src/components/layout/ParticleBackground.js
-import React, { useCallback, useContext, useLayoutEffect, useState } from "react";
+import React, { useCallback, useLayoutEffect, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import { ThemeContext } from "../../context/themeContext";
+import { useTheme } from "../../hooks/useTheme";
 
 const ParticleBackground = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
 
   const getParticleOptions = useCallback(() => {
     const rootStyles = getComputedStyle(document.documentElement);
-    // Read the updated CSS variable values for particle colors.
     const primaryColor = rootStyles.getPropertyValue('--primary-a30').trim() || "#975cce";
     const surfaceColor = rootStyles.getPropertyValue('--surface-a0').trim() || "#ffffff";
 
@@ -45,10 +43,8 @@ const ParticleBackground = () => {
     };
   }, []);
 
-  // Initialize state with the computed options.
   const [particleOptions, setParticleOptions] = useState(getParticleOptions);
 
-  // Delay the update so that the CSS variables have time to update.
   useLayoutEffect(() => {
     const timer = setTimeout(() => {
       setParticleOptions(getParticleOptions());
@@ -61,12 +57,7 @@ const ParticleBackground = () => {
   }, []);
 
   return (
-    <Particles
-      key={theme}  // Remount on theme change.
-      id="tsparticles"
-      init={particlesInit}
-      options={particleOptions}
-    />
+    <Particles key={theme} id="tsparticles" init={particlesInit} options={particleOptions} />
   );
 };
 

@@ -1,20 +1,19 @@
-// frontend/src/components/layout/Header.js
-import React, { useContext } from "react";
-import { ThemeContext } from "../../context/themeContext";
-import { AuthContext } from "../../context/authContext";
+import React from "react";
+import { useTheme } from "../../hooks/useTheme";
+import { useAuth } from "../../hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
-import styles from "./Header.module.css";
+import styles from "../../styles/Header.module.css";
 
 const Header = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const { user, logoutUser } = useContext(AuthContext);
+  const { theme, toggleTheme } = useTheme();
+  const { user, logoutUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
 
-  const handleLogout = () => {
-    logoutUser();
+  const handleLogout = async () => {
+    await logoutUser();
     navigate("/");
   };
 

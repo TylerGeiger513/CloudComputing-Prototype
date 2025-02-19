@@ -1,23 +1,23 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../../context/authContext";
+import React, { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Header from "../layout/Header";
-import styles from "./login.module.css";
-import  ParticleBackground from "../layout/ParticleBackground";
+import ParticleBackground from "../layout/ParticleBackground";
+import styles from "../../styles/Login.module.css"
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await loginUser(email, password);
-      navigate("/dashboard"); 
+      navigate("/dashboard");
     } catch (err) {
       setError(err.message || "Login failed. Please try again.");
     }

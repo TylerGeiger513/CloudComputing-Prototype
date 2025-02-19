@@ -1,0 +1,44 @@
+/* Outer wrapper for the dashboard */
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Grid container for left nav, main content, and friends sidebar */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Left Navbar Column */
+.dashboard-left {
+  background: var(--surface-a10);
+  width: 70px;
+  border-right: 1px solid var(--surface-a40);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+/* Main Content Column */
+.dashboard-main {
+  padding: 20px;
+  background: var(--surface-a0);
+  overflow-y: auto;
+}
+
+/* Friends Sidebar Column */
+.dashboard-friends {
+  height: 100%;
+}
+
+/* On mobile devices, hide the friends sidebar */
+@media (max-width: 500px) {
+  .dashboard-friends {
+    display: none;
+  }
+}
