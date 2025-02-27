@@ -18,9 +18,9 @@ Create an application tailored for university students that enables them to conn
    docker-compose down
    ```
 
-# Demo Video
+# Demo Videos
 
-Messaging (TODO: Web Sockets)
+## Messaging Feature *PROTOTYPE* (TODO: Web Sockets)
 
 
 
