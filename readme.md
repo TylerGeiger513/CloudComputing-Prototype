@@ -20,6 +20,14 @@ Create an application tailored for university students that enables them to conn
 
 # Demo Video
 
+Messaging (TODO: Web Sockets)
+
+
+
+https://github.com/user-attachments/assets/74a3a502-d6dd-4f8e-a135-72df845e7673
+
+
+
 Cookies and Login Auth
 
 https://github.com/user-attachments/assets/3a57d87e-2264-4e75-9dd3-40b85e564b55
