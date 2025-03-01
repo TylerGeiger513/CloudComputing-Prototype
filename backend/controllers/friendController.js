@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const FriendRequest = require('../models/friendRequest');
+const FriendRequest = require('../models/FriendRequest');
 
 // Send a friend request (POST /api/friends/request)
 // Now accepts a field 'recipient' which can be a username or user ID.
