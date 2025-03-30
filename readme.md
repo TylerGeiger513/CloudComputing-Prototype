@@ -178,23 +178,23 @@ The file structure is listed below
 - [x] Build a (Mock) view to manage incoming friend requests and display friend lists. 
 
 ## 3. Direct Messaging System
-- [ ] Create API endpoints for sending and retrieving messages between users.
-- [ ] Design a message model (sender, recipient, timestamp, message content).
+- [x] Create API endpoints for sending and retrieving messages between users.
+- [x] Design a message model (sender, recipient, timestamp, message content).
 - [ ] Implement message persistence storing messages in MongoDB.
-- [ ] Build a prototype UI for direct messages between friends.
+- [x] Build a prototype UI for direct messages between friends.
 - [ ] Integrate messaging inputs and load message history.
 
 ## 4. Live Messaging (Real-time Updates)
-- [ ] Integrate WebSockets (e.g., using Socket.IO) to enable live message broadcasting.
+- [x] Integrate WebSockets (e.g., using Socket.IO) to enable live message broadcasting.
 - [ ] Configure the backend to push real-time updates to connected clients.
-- [ ] Update the direct messaging UI to listen for and display real-time events.
-- [ ] Ensure new messages appear instantly without needing a full page refresh.
+- [x] Update the direct messaging UI to listen for and display real-time events.
+- [x] Ensure new messages appear instantly without needing a full page refresh.
 
 ## 5. University Group Chat
 - [ ] Develop API endpoints for joining university groups.
 - [ ] Allow users to join or leave groups.
 - [ ] Implement features such as group descriptions and member lists.
-- [ ] Build a group chat UI similar to direct messaging.
+- [x] Build a group chat UI similar to direct messaging.
 - [ ] Reuse or extend the live messaging system for group conversations.
 - [ ] Manage group-specific notifications.
 
